@@ -10,6 +10,25 @@ db.collection("products")
             // render product on customer page
         });
     });
+db.collection("products")
+    .where("approved", "==", true)
+    .onSnapshot((snapshot) => {
+        const container = document.getElementById("product-list");
+        container.innerHTML = "";
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            if (data.inStock > 0) {
+                container.innerHTML += `
+          <div class="product">
+            <img src="${data.image}" />
+            <h3>${data.name}</h3>
+            <p>${data.description}</p>
+            <p>₹${data.price}</p>
+            <button>Add to Cart</button>
+          </div>`;
+            }
+        });
+    });
 
 db.collection("products")
     .where("approved", "==", true)
