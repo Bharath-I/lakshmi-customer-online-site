@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Select Payment Type</title>
+    <style>
+        .payment-option {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        img {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Select UPI App for Payment</h2>
+    <div onclick="goToApp('gpay')" class="payment-option">
+        <img src="images/gpay.png" alt="GPay"><br>GPay
+    </div>
+    <div onclick="goToApp('phonepe')" class="payment-option">
+        <img src="images/phonepe.png" alt="PhonePe"><br>PhonePe
+    </div>
+    <div onclick="goToApp('paytm')" class="payment-option">
+        <img src="images/paytm.png" alt="Paytm"><br>Paytm
+    </div>
+
+    <script>
+        function goToApp(app) {
+            window.location.href = app + ".html";
+        }
+    </script>
+</body>
+
+</html>
